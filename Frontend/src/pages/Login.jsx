@@ -29,7 +29,7 @@ const Login = () => {
 
     try {
       // URL for the login API endpoint
-      const url = "http://localhost:8000/api/auth/login";
+      const url = `${import.meta.env.VITE_API_URL}/api/auth/login`;
       
       // Make a POST request to the server
       const response = await fetch(url, {

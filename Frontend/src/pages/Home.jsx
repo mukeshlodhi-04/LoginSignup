@@ -20,7 +20,7 @@ const Home = () => {
 
   const fatchProducts = async () => {
     try {
-      const url = "http://localhost:8000/api/products";
+      const url = `${import.meta.env.VITE_API_URL}/api/products`;
       const headers = {
         headers: {
           'Authorization': localStorage.getItem('token')

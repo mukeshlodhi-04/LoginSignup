@@ -13,7 +13,7 @@ const db = require('./models/db');
 
 const app = express()
 app.use(cors({
-  origin: 'http://localhost:5174', // Allow requests from frontend origin
+  origin: process.env.CLIENT_API_URL, // Allow requests from frontend origin
   methods: ['POST', 'GET', 'PUT', 'DELETE'], // Allow relevant HTTP methods
   credentials: true // if you’re handling cookies/auth
 }));
@@ -32,9 +32,9 @@ app.get('/', (req, res) => {
   })
 
   cloudinary.config({
-     cloud_name: "fileupload005",
-      api_key: "547862391189388",
-      api_secret: "rDsg0XG-c6Sa8ltHU_wHbZsq540",
+     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+      api_key: process.env.CLOUDINARY_API_KEY,
+      api_secret: process.CLOUDINARY_API_SECRET,
   });
   
   const storage = new CloudinaryStorage({
